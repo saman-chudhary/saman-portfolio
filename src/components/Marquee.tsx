@@ -3,6 +3,7 @@ const items = [
   'Liquid Theme Dev', 'Technical SEO', 'Elementor',
   'Web Performance', 'E-Commerce', 'Security Hardening',
   'JavaScript', 'CSS3', 'jQuery', 'GTmetrix',
+  'Next.js', 'React', 'Vercel', 'GitHub',
 ]
 
 export default function Marquee() {

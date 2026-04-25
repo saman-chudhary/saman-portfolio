@@ -1,7 +1,7 @@
 const skillCategories = [
   {
     title: 'Languages',
-    skills: ['Core PHP', 'HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Liquid (Shopify)'],
+    skills: ['Core PHP', 'HTML5', 'CSS3', 'JavaScript', 'jQuery', 'Liquid (Shopify)', 'TypeScript'],
   },
   {
     title: 'WordPress',
@@ -12,16 +12,16 @@ const skillCategories = [
     skills: ['Store Setup & Config', 'Custom Liquid Themes', 'App Integration', 'Checkout Optimisation', 'Payment Gateways'],
   },
   {
+    title: 'Modern Stack',
+    skills: ['Next.js', 'React', 'Vercel', 'GitHub', 'Custom Code', 'Responsive Design'],
+  },
+  {
     title: 'SEO & Performance',
     skills: ['Technical SEO', 'SEO Strategy', 'Google PageSpeed', 'GTmetrix', 'SEMrush', 'Schema Markup', 'Core Web Vitals'],
   },
   {
-    title: 'Security & Hosting',
-    skills: ['Security Hardening', 'Hosting Management', 'SSL Configuration', 'Automated Backups', 'Staging Environments', 'FTP/SFTP'],
-  },
-  {
-    title: 'Tools & Analytics',
-    skills: ['Git', 'WP Rocket', 'LiteSpeed Cache', 'Query Monitor', 'Google Analytics', 'Shopify Analytics'],
+    title: 'Tools & Hosting',
+    skills: ['Git', 'WP Rocket', 'LiteSpeed Cache', 'Query Monitor', 'Google Analytics', 'Shopify Analytics', 'SSL Configuration', 'Security Hardening'],
   },
 ]
 
