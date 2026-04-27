@@ -1,6 +1,5 @@
 'use client'
-
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
 import Marquee from '@/components/Marquee'
@@ -14,26 +13,32 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   const cursorRef = useRef<HTMLDivElement>(null)
-  const ringRef = useRef<HTMLDivElement>(null)
+  const ringRef  = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const cursor = cursorRef.current
-    const ring = ringRef.current
+    const ring   = ringRef.current
     if (!cursor || !ring) return
-
-    let rx = 0, ry = 0
-
     const move = (e: MouseEvent) => {
       cursor.style.left = e.clientX - 4 + 'px'
-      cursor.style.top = e.clientY - 4 + 'px'
+      cursor.style.top  = e.clientY - 4 + 'px'
       setTimeout(() => {
-        ring.style.left = e.clientX - 20 + 'px'
-        ring.style.top = e.clientY - 20 + 'px'
+        ring.style.left = e.clientX - 19 + 'px'
+        ring.style.top  = e.clientY - 19 + 'px'
       }, 60)
     }
-
     window.addEventListener('mousemove', move)
     return () => window.removeEventListener('mousemove', move)
+  }, [])
+
+  // Scroll reveal
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal, .reveal-l, .reveal-r, .reveal-scale')
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target) } })
+    }, { threshold: 0.1 })
+    els.forEach(el => obs.observe(el))
+    return () => obs.disconnect()
   }, [])
 
   return (
