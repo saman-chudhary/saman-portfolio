@@ -1,21 +1,25 @@
 const clients = [
-  { num:'01', name:'SIT Digital', country:'Canada' },
-  { num:'02', name:'York Garrison', country:'Canada' },
-  { num:'03', name:'Neuronics', country:'USA' },
-  { num:'04', name:'Tree Digital Insurance', country:'Saudi Arabia' },
+  { flag: '🇺🇸', country: 'United States', detail: 'E-Commerce & Corporate Sites' },
+  { flag: '🇨🇦', country: 'Canada', detail: 'WordPress & WooCommerce' },
+  { flag: '🇸🇦', country: 'Saudi Arabia', detail: 'Business & Brand Sites' },
+  { flag: '🇵🇰', country: 'Pakistan', detail: 'Agency & Startup Projects' },
 ]
+
 export default function Clients() {
   return (
-    <section id="clients" style={{ background:'var(--surface)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)' }}>
+    <section id="clients">
       <div className="container">
-        <div className="reveal"><div className="section-label">International Clients</div></div>
-        <h2 className="section-title reveal delay-1">TRUSTED BY<br />GLOBAL BRANDS</h2>
+        <div className="section-header reveal">
+          <div className="section-label">Global Reach</div>
+          <div className="section-label-line" />
+        </div>
+        <h2 className="section-title reveal delay-1">CLIENTS I&apos;VE<br />WORKED WITH</h2>
         <div className="clients-grid">
           {clients.map((c, i) => (
-            <div className={`client-card reveal delay-${i+1}`} key={c.num}>
-              <div className="client-num">{c.num}</div>
-              <div className="client-name">{c.name}</div>
+            <div className={`client-card reveal delay-${i + 1}`} key={c.country}>
+              <div className="client-flag">{c.flag}</div>
               <div className="client-country">{c.country}</div>
+              <div className="client-detail">{c.detail}</div>
             </div>
           ))}
         </div>

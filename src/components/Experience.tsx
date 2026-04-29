@@ -4,6 +4,7 @@ const exps = [
     role: 'Senior WordPress & Shopify Developer',
     period: 'Nov 2023 — Present',
     location: 'Lahore, Pakistan',
+    current: true,
     achievements: [
       'Architected and delivered <strong>20+ custom WordPress websites</strong> from scratch — cutting client revision cycles by 40%.',
       'Built and launched <strong>5+ Shopify stores</strong> end-to-end with custom Liquid theme development — increasing conversions by 22%.',
@@ -17,6 +18,7 @@ const exps = [
     role: 'Senior WordPress & Shopify Developer',
     period: 'Jul 2023 — Present',
     location: 'Remote — USA, Canada, Saudi Arabia',
+    current: true,
     achievements: [
       'Grew client retention rate to <strong>90%</strong> delivering fully responsive WooCommerce stores and custom PHP WordPress themes.',
       'Improved SEO rankings to <strong>Page 1 for 5+ keywords per client</strong> via technical SEO overhauls and schema markup.',
@@ -29,6 +31,7 @@ const exps = [
     role: 'WordPress & Shopify Developer',
     period: 'Mar 2020 — Jul 2023',
     location: 'Islamabad, Pakistan',
+    current: false,
     achievements: [
       'Designed and maintained <strong>30+ WordPress websites</strong> using Elementor, WPBakery, HTML5, CSS3 — reducing bounce rates by 30%.',
       'Set up and configured <strong>8+ Shopify stores</strong> end-to-end including payment gateways, shipping rules, and Liquid theme customisation.',
@@ -37,26 +40,42 @@ const exps = [
     ],
   },
 ]
+
 export default function Experience() {
   return (
-    <section id="experience">
+    <section id="experience" className="experience-section">
       <div className="container">
-        <div className="reveal"><div className="section-label">Work Experience</div></div>
+        <div className="section-header reveal">
+          <div className="section-label">Work Experience</div>
+          <div className="section-label-line" />
+        </div>
         <h2 className="section-title reveal delay-1">WHERE I&apos;VE<br />MADE AN IMPACT</h2>
         <div className="exp-list">
           {exps.map((exp, i) => (
             <div className={`exp-item reveal delay-${i + 1}`} key={exp.company}>
-              <div>
-                <div className="exp-company">{exp.company}</div>
-                <div className="exp-period">{exp.period}</div>
-                <div className="exp-location">{exp.location}</div>
-                <div className="exp-role">{exp.role}</div>
+              <div className="exp-timeline">
+                <div className={`exp-dot ${exp.current ? 'exp-dot-active' : ''}`} />
+                {i < exps.length - 1 && <div className="exp-line" />}
               </div>
-              <ul className="exp-achievements">
-                {exp.achievements.map((a, j) => (
-                  <li key={j} dangerouslySetInnerHTML={{ __html: a }} />
-                ))}
-              </ul>
+              <div className="exp-card">
+                <div className="exp-card-header">
+                  <div className="exp-meta">
+                    <div className="exp-company">{exp.company}</div>
+                    <div className="exp-role">{exp.role}</div>
+                    <div className="exp-details">
+                      <span className="exp-period">{exp.period}</span>
+                      <span className="exp-sep">·</span>
+                      <span className="exp-location">{exp.location}</span>
+                    </div>
+                  </div>
+                  {exp.current && <div className="exp-badge">Current</div>}
+                </div>
+                <ul className="exp-achievements">
+                  {exp.achievements.map((a, j) => (
+                    <li key={j} dangerouslySetInnerHTML={{ __html: a }} />
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>

@@ -1,10 +1,20 @@
-const items = ['WordPress','Shopify','WooCommerce','Core PHP','Liquid Theme Dev','Technical SEO','Elementor','Next.js','React','Vercel','GitHub','Web Performance','E-Commerce','Security Hardening','JavaScript','CSS3','jQuery','GTmetrix']
+const items = [
+  'WordPress Development', 'Shopify Development', 'WooCommerce',
+  'Custom PHP Themes', 'Liquid Theme Dev', 'Technical SEO',
+  'Core Web Vitals', 'Performance Optimization', 'Next.js',
+  'React', 'Elementor', 'E-Commerce Solutions',
+]
+
 export default function Marquee() {
-  const doubled = [...items, ...items]
   return (
     <div className="marquee-section">
       <div className="marquee-track">
-        {doubled.map((item, i) => <span className="marquee-item" key={i}>{item}</span>)}
+        {[...items, ...items].map((item, i) => (
+          <div className="marquee-item" key={i}>
+            <span>{item}</span>
+            <span>✦</span>
+          </div>
+        ))}
       </div>
     </div>
   )
